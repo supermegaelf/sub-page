@@ -63,21 +63,6 @@
     <div role="main">
         <div class="modules">
             <div class="lang ru">
-                <div class="module subscription">
-                    <h3 class="module-title">Страница подписки</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Статус<span>{% if user.status.value =='active' %}<div class="dot dot-green"></div>Активна{% elif user.status.value == 'limited' %}<div class="dot dot-yellow"></div>Ограничена{% elif user.status.value == 'expired' %}<div class="dot dot-red"></div>Истекла{% else %}<div class="dot dot-red"></div>Заблокирована{% endif %}</span>    
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Осталось дней: {% if not user.expire %} ∞ {% else %} {% set current_timestamp = now().timestamp() %} {% set remaining_days = ((user.expire - current_timestamp) // (24 * 3600)) %} {{ remaining_days | int }} {% endif %}
-                        </li>
-                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
-                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast');">Скопировать ссылку на подписку</button>
-                            <div id="toast">Скопировано</div>
-                        </li>       
-                    </ul>
-                </div>
 
                 <div class="module">
                     <h3 class="module-title">Выберите платформу:</h3>
@@ -90,16 +75,15 @@
                             <div id="flush-collapse-apps-ios" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-ios" data-bs-parent="#accordionApps">
                                 <div class="accordion-body">
                                     <h6 class="instructions-title">Следуйте инструкции:</h6>
-                                    <p>1. <a href="https://apps.apple.com/ru/app/sing-box-vt/id6673731168" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Установите приложение</a>.</p>
-                                    <p>2. <a id="linkFix" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Добавьте подписку</a> -> "Import" -> "Create".</p>
-
+                                    <p>1. <a href="https://apps.apple.com/us/app/streisand/id6450534064" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Установите приложение</a>.</p>
+                                    <p>2. <a id="linkFix" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
+                                    
                                     <script>
                                         var a = document.getElementById('linkFix');
-                                        a.href = "sing-box://import-remote-profile?url=" + window.location.href + "#Subscription";
+                                        a.href = "streisand://import/" + window.location.href + "#Title";
                                     </script>
 
-                                    <p>3. Перейдите во вкладку "Dashboard" -> "Install Network Extension" -> "Разрешить".</p>
-                                    <p>4. Активируйте "Enabled", чтобы включить VPN.</p>
+                                    <p>3. Включите VPN, нажав на синюю кнопку.</p>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +95,7 @@
                             <div id="flush-collapse-apps-android" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-android" data-bs-parent="#accordionApps">
                                 <div class="accordion-body">
                                     <h6 class="instructions-title">Следуйте инструкции:</h6>
-                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Установите приложение</a>.</p>
+                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Установите приложение</a> и вернитесь к инструкции.</p>
                                     <p>2. <a href="v2rayng://install-config?url={{ user.subscription_url }}&{{ user.username }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
                                     <p>3. Нажмите на три вертикальных точки -> "Обновить подписку".</p>
                                     <p>4. Включите VPN, нажав на серую кнопку с галочкой.</p>
@@ -156,7 +140,7 @@
                                     <h6 class="instructions-title">Следуйте инструкции:</h6>
                                     <p>1. Установите "Google TV" на телефон и подключитесь к телевизору. Оба устройства должны быть подключены к одной Wi-Fi сети.</p>
                                     <p>2. Установите "Hiddify" и "Яндекс Браузер" на телевизор.</p>
-                                    <p>3. Вверху текущей страницы нажмите "Скопировать ссылку на подписку", вставьте её в "Яндекс Браузер" с помощью "Google TV" и перейдите на страницу на телевизоре.</p>
+                                    <p>3. В нижней части текущей страницы нажмите "Скопировать ссылку на подписку", вставьте её в "Яндекс Браузер" с помощью "Google TV" и перейдите на страницу на телевизоре.</p>
                                     <p>4. Повторно нажмите "Скопировать ссылку на подписку" на телевизоре и откройте "Hiddify".</p>
                                     <p>5. Нажмите "+" -> "Добавить из буфера обмена".</p>
                                     <p>6. Включите VPN, нажав на белую круглую кнопку.</p>
@@ -173,31 +157,27 @@
                                     <h6 class="instructions-title">Следуйте инструкции:</h6>
                                     <p>1. Подключитесь к "Apple TV" с помощью телефона.</p>
                                     <p>2. Установите "Shadowrocket" на телевизор.</p>
-                                    <p>3. Вверху текущей страницы нажмите "Скопировать ссылку на подписку" -> откройте "Shadowrocket" и нажмите "+" -> выберите "Тип" - "Subscribe" -> вставьте скопированную ссылку в "URL" и сохраните конфигурацию.</p>
+                                    <p>3. В нижней части текущей страницы нажмите "Скопировать ссылку на подписку" -> откройте "Shadowrocket" и нажмите "+" -> выберите "Тип" - "Subscribe" -> вставьте скопированную ссылку в "URL" и сохраните конфигурацию.</p>
                                     <p>4. Включите VPN, нажав "Выключен".</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="module subscription">
+                    <h3 class="module-title"></h3>
+                    <ul class="list-group list-group-flush">
+                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
+                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast');">Скопировать ссылку на подписку</button>
+                            <div id="toast">Скопировано</div>
+                        </li>       
+                    </ul>
+                </div>
+                
             </div>
 
             <div class="lang en">
-                <div class="module subscription">
-                    <h3 class="module-title">Subscription page</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Status<span>{% if user.status.value =='active' %}<div class="dot dot-green"></div>Active{% elif user.status.value == 'limited' %}<div class="dot dot-yellow"></div>Limited{% elif user.status.value == 'expired' %}<div class="dot dot-red"></div>Expired{% else %}<div class="dot dot-red"></div>Blocked{% endif %}</span>    
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Days left: {% if not user.expire %} ∞ {% else %} {% set current_timestamp = now().timestamp() %} {% set remaining_days = ((user.expire - current_timestamp) // (24 * 3600)) %} {{ remaining_days | int }} {% endif %}
-                        </li>
-                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
-                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast-en');">Copy subscription link</button>
-                            <div id="toast-en">Copied</div>
-                        </li>        
-                    </ul>
-                </div>
 
                 <div class="module">
                     <h3 class="module-title">Select platform:</h3>
@@ -210,16 +190,15 @@
                             <div id="flush-collapse-apps-ios" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-ios" data-bs-parent="#accordionApps">
                                 <div class="accordion-body">
                                     <h6 class="instructions-title">Follow instruction:</h6>
-                                    <p>1. <a href="https://apps.apple.com/ru/app/sing-box-vt/id6673731168" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Install app</a>.</p>
-                                    <p>2. <a id="linkFix-en" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Add subscription</a> -> "Import" -> "Create".</p>
+                                    <p>1. <a href="https://apps.apple.com/us/app/streisand/id6450534064" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Install app</a>.</p>
+                                    <p>2. <a id="linkFix-en" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Add subscription</a>.</p>
                                     
                                     <script>
                                         var a = document.getElementById('linkFix-en');
-                                        a.href = "sing-box://import-remote-profile?url=" + window.location.href + "#Title";
+                                        a.href = "streisand://import/" + window.location.href + "#Title";
                                     </script>
 
-                                    <p>3. Go to "Dashboard" -> "Install Network Extension" -> "Allow" tab.</p>
-                                    <p>4. Activate "Enabled" to enable VPN.</p>
+                                    <p>3. Enable VPN by clicking on blue button.</p>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +210,7 @@
                             <div id="flush-collapse-apps-android" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-android" data-bs-parent="#accordionApps">
                                 <div class="accordion-body">
                                     <h6 class="instructions-title">Follow instruction:</h6>
-                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Install app</a>.</p>
+                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Install app</a> and return to instructions.</p>
                                     <p>2. <a href="v2rayng://install-config?url={{ user.subscription_url }}&{{ user.username }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Add subscription</a>.</p>
                                     <p>3. Click on three vertical dots -> "Update subscription".</p>
                                     <p>4. Enable VPN by clicking on gray button with check mark.</p>
@@ -276,7 +255,7 @@
                                     <h6 class="instructions-title">Follow instruction:</h6>           
                                     <p>1. Install "Google TV" on your phone and connect to your TV. Both devices must be connected to the same Wi-Fi network.</p>
                                     <p>2. Install "Hiddify" and "Yandex Browser" on your TV.</p>
-                                    <p>3. At the top of the page, click "Copy subscription link", paste it into "Yandex Browser" with "Google TV" and navigate to the page on your TV.</p>
+                                    <p>3. At the bottom of the page, click "Copy subscription link", paste it into "Yandex Browser" with "Google TV" and navigate to the page on your TV.</p>
                                     <p>4. Click "Copy subscription link" again on the TV and open "Hiddify".</p>
                                     <p>5. Press "+" -> "Add from clipboard".</p>
                                     <p>6. Enable VPN by clicking on white round button.</p>
@@ -293,13 +272,23 @@
                                     <h6 class="instructions-title">Follow instruction:</h6>
                                     <p>1. Connect to "Apple TV" using your phone.</p>
                                     <p>2. Install "Shadowrocket" on TV.</p>
-                                    <p>3. At top of current page, click "Copy subscription link" -> open "Shadowrocket" and click "+" -> choose "Type" - "Subscribe" -> paste copied link into "URL" and save configuration.</p>
+                                    <p>3. At the bottom of current page, click "Copy subscription link" -> open "Shadowrocket" and click "+" -> choose "Type" - "Subscribe" -> paste copied link into "URL" and save configuration.</p>
                                     <p>4. Enable VPN by clicking "Disconnected".</p>
                                 </div>
                             </div>
                         </div>                        
                     </div>
+
+                <div class="module subscription">
+                    <h3 class="module-title"></h3>
+                    <ul class="list-group list-group-flush">
+                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
+                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast-en');">Copy subscription link</button>
+                            <div id="toast-en">Copied</div>
+                        </li>        
+                    </ul>
                 </div>
+
             </div>
         </div>
     </div>
