@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о подписке и способах подключения">
+    <link rel="icon" type="image/x-icon" href="https://google.com/pic.png">
+    <title>Surf VPN</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script>
+        const expireDateInit = "{% if not user.expire %}∞{% else %}{% set current_timestamp = now().timestamp() %}{{ user.expire | datetime }}{% endif %}";
+        let expireDateVar = expireDateInit.includes("∞") ? "∞" : new Date(expireDateInit).toLocaleString("ru-RU").replace(",", "")
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var accordionItems = document.querySelectorAll('.accordion-button');
+            accordionItems.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var openedItem = document.querySelector('.accordion-collapse.show');
+                    // Если уже открыт другой раздел, закрываем его
+                    if (openedItem && openedItem !== this.nextElementSibling) {
+                        var openedButton = openedItem.previousElementSibling;
+                        openedButton.classList.add('collapsed');
+                        openedButton.setAttribute('aria-expanded', 'false');
+                        openedItem.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        function showNotification(notificationElementId) {
+            let notification = document.getElementById(notificationElementId)
+            notification.className = "show";
+            setTimeout(() => { 
+                notification.className = notification.className.replace("show", ""); 
+            }, 2900);
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        const links = document.getElementsByClassName('self-link');
+        Array.from(links).forEach(link => {
+            link.href = link.href.replace('{link}', window.location.href);
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')">En</button>
+        <button onclick="switchLanguage('ru')">Ру</button>
+    </div>
+    <div role="main">
+        <div class="modules">
+            <div class="lang ru">
+
+                <div class="module">
+                    <h3 class="module-title">Выберите платформу:</h3>
+                    <div id="accordionApps" class="accordion accordion-flush">
+                        <!-- iOS -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-ios">
+                                <button class="accordion-button collapsed lh0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-ios" aria-expanded="false" aria-controls="flush-collapse-apps-ios">iOS</button>
+                            </h2>
+                            <div id="flush-collapse-apps-ios" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-ios" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Следуйте инструкции:</h6>
+                                    <p>1. <a href="https://apps.apple.com/us/app/streisand/id6450534064" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Установите приложение</a>.</p>
+                                    <p>2. <a id="linkFix" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
+                                    
+                                    <script>
+                                        var a = document.getElementById('linkFix');
+                                        a.href = "streisand://import/" + window.location.href + "#Title";
+                                    </script>
+
+                                    <p>3. Нажмите "Настройки" -> "Подписка" -> активируйте "Обновить при открытии".</p>
+                                    <p>4. Нажмите "Главная" и включите VPN на синюю кнопку.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Android -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-android">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-android" aria-expanded="false" aria-controls="flush-collapse-apps-android">Android</button>
+                            </h2>
+                            <div id="flush-collapse-apps-android" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-android" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Следуйте инструкции:</h6>
+                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Установите приложение</a> и вернитесь к инструкции.</p>
+                                    <p>2. <a href="v2rayng://install-config?url={{ user.subscription_url }}&{{ user.username }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
+                                    <p>3. Нажмите на три вертикальных точки -> "Обновить подписку".</p>
+                                    <p>4. Включите VPN, нажав на серую кнопку с галочкой.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Windows -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-windows">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-windows" aria-expanded="false" aria-controls="flush-collapse-apps-windows">Windows</button>
+                            </h2>
+                            <div id="flush-collapse-apps-windows" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-windows" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Следуйте инструкции:</h6>
+                                    <p>1. <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.exe" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Установите приложение</a> и запустите его.</p>
+                                    <p>2. <a href="hiddify://install-config/?url={{ user.subscription_url }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
+                                    <p>3. Включите VPN, нажав на белую круглую кнопку.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- macOS -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-macos">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-macos" aria-expanded="false" aria-controls="flush-collapse-apps-macos">macOS</button>
+                            </h2>
+                            <div id="flush-collapse-apps-macos" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-macos" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">            
+                                    <h6 class="instructions-title">Следуйте инструкции:</h6>
+                                    <p>1. <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-MacOS.dmg" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Установите приложение</a> и запустите его.</p>
+                                    <p>2. <a href="hiddify://install-config/?url={{ user.subscription_url }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Добавьте подписку</a>.</p>
+                                    <p>3. Включите VPN, нажав на белую круглую кнопку.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module subscription">
+                    <h3 class="module-title"></h3>
+                    <ul class="list-group list-group-flush">
+                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
+                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast');">Скопировать ссылку на подписку</button>
+                            <div id="toast">Скопировано</div>
+                        </li>       
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="lang en">
+
+                <div class="module">
+                    <h3 class="module-title">Select platform:</h3>
+                    <div id="accordionApps" class="accordion accordion-flush">
+                        <!-- iOS -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-ios"></h2>
+                                <button class="accordion-button collapsed lh0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-ios" aria-expanded="false" aria-controls="flush-collapse-apps-ios">iOS</button>
+                            </h2>
+                            <div id="flush-collapse-apps-ios" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-ios" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Follow instruction:</h6>
+                                    <p>1. <a href="https://apps.apple.com/us/app/streisand/id6450534064" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Install app</a>.</p>
+                                    <p>2. <a id="linkFix-en" href="https://google.com" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Add subscription</a>.</p>
+                                    
+                                    <script>
+                                        var a = document.getElementById('linkFix-en');
+                                        a.href = "streisand://import/" + window.location.href + "#Title";
+                                    </script>
+
+                                    <p>3. Click "Settings" -> "Subscription" -> activate "Update On Open".</p>
+                                    <p>4. Click "Home" and enable VPN on blue button.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Android -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-android">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-android" aria-expanded="false" aria-controls="flush-collapse-apps-android">Android</button>
+                            </h2>
+                            <div id="flush-collapse-apps-android" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-android" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Follow instruction:</h6>
+                                    <p>1. <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="link list-group-item list-group-item-action" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);">Install app</a> and return to instructions.</p>
+                                    <p>2. <a href="v2rayng://install-config?url={{ user.subscription_url }}&{{ user.username }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Add subscription</a>.</p>
+                                    <p>3. Click on three vertical dots -> "Update subscription".</p>
+                                    <p>4. Enable VPN by clicking on gray button with check mark.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Windows -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-windows">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-windows" aria-expanded="false" aria-controls="flush-collapse-apps-windows">Windows</button>
+                            </h2>
+                            <div id="flush-collapse-apps-windows" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-windows" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">
+                                    <h6 class="instructions-title">Follow instruction:</h6>
+                                    <p>1. <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.exe" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Install app</a> and run it.</p>
+                                    <p>2. <a href="hiddify://install-config/?url={{ user.subscription_url }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Add subscription</a>.</p>
+                                    <p>3. Enable VPN by clicking on white round button.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- macOS -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading-apps-macos">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-apps-macos" aria-expanded="false" aria-controls="flush-collapse-apps-macos">macOS</button>
+                            </h2>
+                            <div id="flush-collapse-apps-macos" class="accordion-collapse collapse" aria-labelledby="flush-heading-apps-macos" data-bs-parent="#accordionApps">
+                                <div class="accordion-body">            
+                                    <h6 class="instructions-title">Follow instruction:</h6>
+                                    <p>1. <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-MacOS.dmg" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="link list-group-item list-group-item-action">Install app</a> and run it.</p>
+                                    <p>2. <a href="hiddify://install-config/?url={{ user.subscription_url }}" target="_blank" style="display: inline; text-decoration: underline; color: rgb(23,114,252);" class="self-link link list-group-item list-group-item-action">Add a subscription</a>.</p>
+                                    <p>3. Enable VPN by clicking on white round button.</p>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+
+                <div class="module subscription">
+                    <h3 class="module-title"></h3>
+                    <ul class="list-group list-group-flush">
+                        <li style="height: 45px;" class="list-group-item d-flex align-items-center">
+                            <button style="padding: 0;" type="button" class="btn btn-link link-dark" onclick="copyToClipboard(window.location.href); showNotification('toast-en');">Copy subscription link</button>
+                            <div id="toast-en">Copied</div>
+                        </li>        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        html {
+            margin: auto;
+            max-width: 520px;
+            min-width: 300px;
+            padding: 0 25px 50px 25px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;    
+        }
+
+        .dot-red {
+            background-color: #bf1d11;
+        }
+
+        .dot-green {
+            background-color: green;
+        }
+
+        .dot-yellow {
+            background-color: #ffbe0a;
+        }
+
+        .app-icon {
+            margin-right: 8px;
+        }
+
+        .img-help {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .subscription li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .accordion-body .list-group {
+            padding-bottom: 5px;
+        }
+
+        .accordion, 
+        .subscription .list-group {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .accordion .list-group {
+            padding-top: 0px;
+            --bs-list-group-item-padding-x: 5px;
+        }
+
+        .lh0 {
+            line-height: 0;
+        }
+
+        .instructions {
+            margin-top: 15px;
+        }
+
+        .instructions p {
+            margin-bottom: 10px;
+        }
+
+        .instructions-title {
+            margin: 10px 0;
+            font-size: 22.5px;
+            margin-bottom: 15px;
+        }
+
+        .link {
+            display: flex;
+        }
+
+        .link-icon {
+            width: 25px;
+            height: 25px;
+            margin-left: auto;
+        }
+
+        .module-title {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            font-size: 25px;
+        }
+
+        .module-title-2 {
+            font-size: 22.5px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #DCDCDC;
+            color: var(--bs-accordion-btn-color)
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: white;
+        }
+
+        .form-check-input:focus {
+            box-shadow: none;
+        }
+
+        #toast {
+            visibility: hidden;
+            width: fit-content;
+            margin: auto;
+            color: #000;
+            text-align: center;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 45px;
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 1s, fadeout 1s 2s;
+        }
+
+        #toast-en {
+            visibility: hidden;
+            width: fit-content;
+            margin: auto;
+            color: #000;
+            text-align: center;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 45px;
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #toast-en.show {
+            visibility: visible;
+            animation: fadein 1s, fadeout 1s 2s;
+        }
+
+        @keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+            to {
+                top: 45px;
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                top: 45px;
+                opacity: 1;
+            }
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        [data-bs-theme=light] .form-check-input:focus {
+            border-color: #dee2e6;
+            --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+        }
+
+        /* Стили для поддержки переключения языков */
+        .lang {
+            display: none;
+        }
+        .lang.active {
+            display: block;
+        }
+        .language-switcher {
+            margin-top: 20px;
+            margin-bottom: -10px;
+            text-align: right;
+        }
+        .language-switcher button {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px !important; /* Принудительное закругление углов */
+            overflow: hidden;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #000000;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+        .language-switcher button.active {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px !important; /* Принудительное закругление углов */
+            overflow: hidden;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: #DCDCDC;
+            border: 1px solid #dee2e6;
+            color: #000000;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+    </style>
+
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelector(`.lang.${lang}`).classList.add('active');
+        }
+
+        switchLanguage('ru');
+    </script>
+
+    <script>
+        function switchLanguage(lang) {
+            // Убираем активный класс с кнопок
+            document.querySelectorAll('.language-switcher button').forEach(button => {
+                button.classList.remove('active');
+            });
+            // Добавляем активный класс для выбранной кнопки
+            document.querySelector(`.language-switcher button[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Переключаем языковые блоки
+            document.querySelectorAll('.lang').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelector(`.lang.${lang}`).classList.add('active');
+        }
+
+        // Устанавливаем начальный активный язык
+        switchLanguage('ru');
+    </script>
+</body>
+</html>
