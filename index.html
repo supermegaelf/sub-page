@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Информация о подписке и способах подключения"
+    />
+    <link rel="icon" type="image/x-icon" href="https://google.com/pic.png" />
+    <title>Surf VPN</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="language-switcher">
+      <button onclick="switchLanguage('en')">En</button>
+      <button onclick="switchLanguage('ru')" class="active">Ру</button>
+    </div>
+    <div role="main">
+      <div class="modules">
+        <div class="module">
+          <h3
+            class="module-title"
+            data-lang-ru="Выберите платформу:"
+            data-lang-en="Select platform:"
+          >
+            Выберите платформу:
+          </h3>
+          <div id="accordionApps" class="accordion accordion-flush">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-apps-ios">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapse-apps-ios"
+                  aria-expanded="false"
+                  aria-controls="flush-collapse-apps-ios"
+                  data-lang-ru="iOS"
+                  data-lang-en="iOS"
+                >
+                  iOS
+                </button>
+              </h2>
+              <div
+                id="flush-collapse-apps-ios"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-apps-ios"
+                data-bs-parent="#accordionApps"
+              >
+                <div class="accordion-body">
+                  <h6
+                    class="instructions-title"
+                    data-lang-ru="Следуйте инструкции:"
+                    data-lang-en="Follow instruction:"
+                  >
+                    Следуйте инструкции:
+                  </h6>
+                  <p>
+                    1.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      href="https://apps.apple.com/ru/app/happ-proxy-utility/id6504287215"
+                      target="_blank"
+                      data-lang-ru="Установите приложение"
+                      data-lang-en="Install app"
+                    >
+                      Установите приложение
+                    </a>.
+                  </p>
+                  <p>
+                    2.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      id="linkFix-ios"
+                      href="https://google.com"
+                      target="_blank"
+                      data-lang-ru="Добавьте подписку"
+                      data-lang-en="Add subscription"
+                    >
+                      Добавьте подписку
+                    </a>.
+                  </p>
+                  <p>
+                    3.
+                    <span
+                      data-lang-ru="Нажмите на круглую кнопку, чтобы включить VPN."
+                      data-lang-en="Click round button to enable VPN."
+                    >
+                      Нажмите на круглую кнопку, чтобы включить VPN.
+                    </span>
+                  </p>
+                  <script>
+                    var a = document.getElementById('linkFix-ios');
+                    const url = new URL(window.location.href);
+                    a.href = "happ://add/" + url.origin + url.pathname + "#Title";
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-apps-android">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapse-apps-android"
+                  aria-expanded="false"
+                  aria-controls="flush-collapse-apps-android"
+                  data-lang-ru="Android"
+                  data-lang-en="Android"
+                >
+                  Android
+                </button>
+              </h2>
+              <div
+                id="flush-collapse-apps-android"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-apps-android"
+                data-bs-parent="#accordionApps"
+              >
+                <div class="accordion-body">
+                  <h6
+                    class="instructions-title"
+                    data-lang-ru="Следуйте инструкции:"
+                    data-lang-en="Follow instruction:"
+                  >
+                    Следуйте инструкции:
+                  </h6>
+                  <p>
+                    1.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      href="https://play.google.com/store/apps/details?id=com.happproxy"
+                      target="_blank"
+                      data-lang-ru="Установите приложение"
+                      data-lang-en="Install app"
+                    >
+                      Установите приложение
+                    </a>.
+                  </p>
+                  <p>
+                    2.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      id="linkFix-android"
+                      href=""
+                      target="_blank"
+                      data-lang-ru="Добавьте подписку"
+                      data-lang-en="Add subscription"
+                    >
+                      Добавьте подписку
+                    </a>.
+                  </p>
+                  <p>
+                    <span
+                      data-lang-ru='Если возникает ошибка или ничего не происходит — нажмите «Скопировать ссылку на подписку» в нижней части страницы, откройте установленное приложение и нажмите «Вставить».'
+                      data-lang-en='If error occurs or nothing happens — click «Copy subscription link» at bottom of page, open installed app and click «Paste».'
+                    >
+                      Если возникает ошибка или ничего не происходит — нажмите «Скопировать ссылку на подписку» в нижней части страницы, откройте установленное приложение и нажмите «Вставить».
+                    </span>
+                  </p>
+                  <p>
+                    3.
+                    <span
+                      data-lang-ru="Нажмите на круглую кнопку, чтобы включить VPN."
+                      data-lang-en="Click round button to enable VPN."
+                    >
+                      Нажмите на круглую кнопку, чтобы включить VPN.
+                    </span>
+                  </p>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      var a = document.getElementById('linkFix-android');
+                      const url = new URL(window.location.href);
+                      a.href = "happ://add/" + url.origin + url.pathname + "#Title";
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-apps-windows">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapse-apps-windows"
+                  aria-expanded="false"
+                  aria-controls="flush-collapse-apps-windows"
+                  data-lang-ru="Windows"
+                  data-lang-en="Windows"
+                >
+                  Windows
+                </button>
+              </h2>
+              <div
+                id="flush-collapse-apps-windows"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-apps-windows"
+                data-bs-parent="#accordionApps"
+              >
+                <div class="accordion-body">
+                  <h6
+                    class="instructions-title"
+                    data-lang-ru="Следуйте инструкции:"
+                    data-lang-en="Follow instruction:"
+                  >
+                    Следуйте инструкции:
+                  </h6>
+                  <p>
+                    1.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      href="https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x86.exe"
+                      target="_blank"
+                      data-lang-ru="Установите приложение"
+                      data-lang-en="Install app"
+                    >
+                      Установите приложение
+                    </a>
+                    <span
+                      data-lang-ru="и запустите его."
+                      data-lang-en="and run it."
+                    >
+                      и запустите его.
+                    </span>
+                  </p>
+                  <p>
+                    2.
+                    <a
+                      class="self-link link list-group-item list-group-item-action"
+                      href="https://redirect.example.com?happ_url="
+                      target="_blank"
+                      data-lang-ru="Добавьте подписку"
+                      data-lang-en="Add subscription"
+                    >
+                      Добавьте подписку
+                    </a>.
+                  </p>
+                  <p>
+                    3.
+                    <span
+                      data-lang-ru="Выберите строку с конфигурацией — «Быстрый» или «Устойчивый» — и нажмите круглую кнопку, чтобы включить VPN."
+                      data-lang-en="Select configuration line — «Fast» or «Sustainable» — and click round button to enable VPN."
+                    >
+                      Выберите строку с конфигурацией — «Быстрый» или «Устойчивый» — и нажмите круглую кнопку, чтобы включить VPN.
+                    </span>
+                  </p>
+                  <p>
+                    4.
+                    <span
+                      data-lang-ru="Нажмите на значок шестерёнки в левом столбце и активируйте «Autostart»."
+                      data-lang-en="Click on gear icon in left column and activate «Autostart»."
+                    >
+                      Нажмите на значок шестерёнки в левом столбце и активируйте «Autostart».
+                    </span>
+                  </p>
+                  <script>
+                    var windowsLink = document.querySelector('#flush-collapse-apps-windows .self-link');
+                    if (windowsLink) {
+                      const url = new URL(window.location.href);
+                      windowsLink.href = "https://redirect.example.com?happ_url=" + encodeURIComponent("happ://add/" + url.origin + url.pathname);
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-apps-macos">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapse-apps-macos"
+                  aria-expanded="false"
+                  aria-controls="flush-collapse-apps-macos"
+                  data-lang-ru="macOS"
+                  data-lang-en="macOS"
+                >
+                  macOS
+                </button>
+              </h2>
+              <div
+                id="flush-collapse-apps-macos"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-apps-macos"
+                data-bs-parent="#accordionApps"
+              >
+                <div class="accordion-body">
+                  <h6
+                    class="instructions-title"
+                    data-lang-ru="Следуйте инструкции:"
+                    data-lang-en="Follow instruction:"
+                  >
+                    Следуйте инструкции:
+                  </h6>
+                  <p>
+                    1.
+                    <a
+                      class="link list-group-item list-group-item-action"
+                      href="https://apps.apple.com/ru/app/happ-proxy-utility/id6504287215"
+                      target="_blank"
+                      data-lang-ru="Установите приложение"
+                      data-lang-en="Install app"
+                    >
+                      Установите приложение
+                    </a>
+                    <span
+                      data-lang-ru="и запустите его."
+                      data-lang-en="and run it."
+                    >
+                      и запустите его.
+                    </span>
+                  </p>
+                  <p>
+                    2.
+                    <a
+                      class="self-link link list-group-item list-group-item-action"
+                      href="https://redirect.example.com?happ_url="
+                      target="_blank"
+                      data-lang-ru="Добавьте подписку"
+                      data-lang-en="Add subscription"
+                    >
+                      Добавьте подписку
+                    </a>.
+                  </p>
+                  <p>
+                    3.
+                    <span
+                      data-lang-ru="Выберите строку с конфигурацией — «Быстрый» или «Устойчивый» — и нажмите круглую кнопку, чтобы включить VPN."
+                      data-lang-en="Select configuration line — «Fast» or «Sustainable» — and click round button to enable VPN."
+                    >
+                      Выберите строку с конфигурацией — «Быстрый» или «Устойчивый» — и нажмите круглую кнопку, чтобы включить VPN.
+                    </span>
+                  </p>
+                  <p>
+                    4.
+                    <span
+                      data-lang-ru="Нажмите на значок шестерёнки в левом столбце и активируйте «Autostart»."
+                      data-lang-en="Click on gear icon in left column and activate «Autostart»."
+                    >
+                      Нажмите на значок шестерёнки в левом столбце и активируйте «Autostart».
+                    </span>
+                  </p>
+                  <script>
+                    var macosLink = document.querySelector('#flush-collapse-apps-macos .self-link');
+                    if (macosLink) {
+                      const url = new URL(window.location.href);
+                      macosLink.href = "https://redirect.example.com?happ_url=" + encodeURIComponent("happ://add/" + url.origin + url.pathname);
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="module subscription">
+          <ul class="list-group list-group-flush">
+            <li
+              style="height: 45px;"
+              class="list-group-item d-flex align-items-center"
+            >
+              <button
+                style="padding: 0;"
+                type="button"
+                class="btn btn-link link-dark copy-btn"
+                data-lang-ru="Скопировать ссылку на подписку"
+                data-lang-en="Copy subscription link"
+                onclick="copyToClipboard()"
+              >
+                Скопировать ссылку на подписку
+              </button>
+              <div
+                data-lang-ru="Скопировано"
+                data-lang-en="Copied"
+                id="toast-ru"
+              >
+                Скопировано
+              </div>
+              <div
+                data-lang-ru="Скопировано"
+                data-lang-en="Copied"
+                id="toast-en"
+              >
+                Copied
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <style>
+      html {
+        margin: auto;
+        max-width: 520px;
+        min-width: 300px;
+        padding: 0 25px 50px 25px;
+      }
+
+      .subscription li {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .accordion-body .list-group {
+        padding-bottom: 5px;
+      }
+
+      .accordion,
+      .subscription .list-group {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .module.subscription {
+        margin-top: 25px;
+      }
+
+      .instructions {
+        margin-top: 15px;
+      }
+
+      .instructions-title {
+        margin: 10px 0;
+        font-size: 22.5px;
+        margin-bottom: 15px;
+      }
+
+      .link,
+      .self-link {
+        display: inline;
+        color: rgb(23, 114, 252) !important;
+        transition: color 0.3s ease;
+        text-decoration: none;
+      }
+
+      @media (min-width: 769px) {
+        .link:hover,
+        .self-link:hover {
+          color: #0056b3 !important;
+          text-decoration: underline !important;
+        }
+        #accordionApps .link.list-group-item-action:hover,
+        #accordionApps .self-link.list-group-item-action:hover {
+          color: #0056b3 !important;
+          text-decoration: underline !important;
+        }
+        .btn.btn-link:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .link:active,
+      .self-link:active {
+        color: #0056b3 !important;
+        text-decoration: underline !important;
+      }
+
+      .link:visited,
+      .self-link:visited {
+        color: rgb(23, 114, 252) !important;
+        text-decoration: none;
+      }
+
+      #accordionApps .link,
+      #accordionApps .self-link {
+        color: rgb(23, 114, 252) !important;
+        text-decoration: none;
+      }
+
+      #accordionApps .link:visited,
+      #accordionApps .self-link:visited {
+        color: rgb(23, 114, 252) !important;
+        text-decoration: none;
+      }
+
+      #accordionApps .link.active,
+      #accordionApps .self-link.active {
+        color: #0056b3 !important;
+        text-decoration: underline !important;
+      }
+
+      .copy-btn.active {
+        text-decoration: underline !important;
+      }
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) {
+        #accordionApps .link,
+        #accordionApps .self-link {
+          -webkit-tap-highlight-color: transparent;
+          text-decoration: none;
+          color: rgb(23, 114, 252) !important;
+        }
+        .copy-btn {
+          -webkit-tap-highlight-color: transparent;
+          text-decoration: none;
+        }
+      }
+
+      .btn.btn-link {
+        text-decoration: none;
+      }
+
+      .module-title {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        font-size: 25px;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background-color: #dcdcdc;
+        color: var(--bs-accordion-btn-color);
+      }
+
+      .accordion-button:focus {
+        box-shadow: none;
+        border-color: white;
+      }
+
+      .accordion-collapse {
+        transition: height 0.3s ease;
+      }
+
+      #toast-ru,
+      #toast-en {
+        visibility: hidden;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #dcdcdc;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 15px;
+        z-index: 1000;
+        font-size: 16px;
+        white-space: nowrap;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        #toast-ru,
+        #toast-en {
+          left: 50%;
+          right: auto;
+          transform: translateX(-50%);
+        }
+      }
+
+      #toast-ru.show,
+      #toast-en.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 20px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 20px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+
+      .language-switcher {
+        margin-top: 20px;
+        margin-bottom: -10px;
+        text-align: right;
+      }
+
+      .language-switcher button {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px !important;
+        overflow: hidden;
+        padding: 5px 10px;
+        margin-left: 5px;
+        cursor: pointer;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        color: #000000;
+        transition: background-color 0.3s, opacity 0.3s;
+      }
+
+      .language-switcher button.active {
+        background-color: #dcdcdc;
+      }
+    </style>
+    <script>
+      let currentLang = "ru";
+
+      function switchLanguage(lang) {
+        currentLang = lang;
+        document
+          .querySelectorAll(".language-switcher button")
+          .forEach((button) => {
+            button.classList.remove("active");
+          });
+        document
+          .querySelector(
+            `.language-switcher button[onclick="switchLanguage('${lang}')"]`
+          )
+          .classList.add("active");
+
+        document
+          .querySelectorAll("[data-lang-ru], [data-lang-en]")
+          .forEach((element) => {
+            const text = element.getAttribute(`data-lang-${lang}`);
+            if (text) {
+              element.textContent = text;
+            }
+          });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        switchLanguage("ru");
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const accordionButtons = document.querySelectorAll(".accordion-button");
+        accordionButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const openedItem = document.querySelector(
+              ".accordion-collapse.show"
+            );
+            if (openedItem && openedItem !== button.nextElementSibling) {
+              const openedButton = openedItem.previousElementSibling;
+              openedButton.classList.add("collapsed");
+              openedButton.setAttribute("aria-expanded", "false");
+              openedItem.classList.remove("show");
+            }
+          });
+        });
+
+        const links = document.querySelectorAll('#accordionApps .link, #accordionApps .self-link');
+        links.forEach(link => {
+          link.addEventListener('touchstart', function(e) {
+            this.classList.add('active');
+          });
+          link.addEventListener('touchend', function() {
+            this.classList.remove('active');
+          });
+          link.addEventListener('touchcancel', function() {
+            this.classList.remove('active');
+          });
+          link.addEventListener('touchmove', function() {
+            this.classList.remove('active');
+          });
+        });
+
+        const copyButton = document.querySelector('.copy-btn');
+        copyButton.addEventListener('touchstart', function(e) {
+          this.classList.add('active');
+        });
+        copyButton.addEventListener('touchend', function() {
+          this.classList.remove('active');
+        });
+        copyButton.addEventListener('touchcancel', function() {
+          this.classList.remove('active');
+        });
+        copyButton.addEventListener('touchmove', function() {
+          this.classList.remove('active');
+        });
+      });
+    </script>
+    <script>
+      function showNotification() {
+        const notificationId = currentLang === "ru" ? "toast-ru" : "toast-en";
+        const notification = document.getElementById(notificationId);
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 2900);
+      }
+
+      function copyToClipboard() {
+        const url = new URL(window.location.href);
+        const baseUrl = url.origin + url.pathname;
+        navigator.clipboard.writeText(baseUrl);
+        showNotification();
+      }
+    </script>
+    <script>
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+        const results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
+      const happUrl = getParameterByName("happ_url");
+      if (happUrl) {
+        window.location.href = happUrl;
+      }
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91de4183ba67bd3c',t:'MTc0MTU2MTkzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9244f169ae0cbe15',t:'MTc0MjYzODY4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  </body>
+</html>
